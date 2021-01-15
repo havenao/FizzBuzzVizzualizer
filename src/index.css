@@ -83,7 +83,6 @@ header {
   justify-content: space-evenly;
   align-items: center;
   box-shadow: 0 0 2px 2px deeppink;
-
   border-radius: 0.75rem;
 }
 
@@ -148,8 +147,8 @@ button:focus {
 }
 
 .plus-min {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   padding: 0;
   margin: 0.5rem;
   vertical-align: baseline;
@@ -185,7 +184,7 @@ button:focus {
   background-color: coral;
   box-shadow: 0 0 5px 1px coral;
 }
-.F-text {
+.F.text {
   color: coral;
 }
 
@@ -193,15 +192,15 @@ button:focus {
   background-color: rgb(250, 250, 67);
   box-shadow: 0 0 5px 1px rgb(250, 250, 67);
 }
-.B-text {
+.B.text {
   color: rgb(250, 250, 67);
 }
-.F-text,
-.B-text {
+.F.text,
+.B.text {
   text-align: center;
 }
-label.F-text,
-label.B-text {
+label.F.text,
+label.B.text {
   font-size: 3rem;
 }
 
@@ -209,6 +208,52 @@ label.B-text {
   background-color: deeppink;
   box-shadow: 0 0 5px 1px deeppink;
 }
-.FB-text {
+.FB.text {
   color: deeppink;
+}
+
+.text {
+  background-color: black;
+  box-shadow: none;
+}
+@media only screen and (max-width: 700px) {
+  :root {
+    font-size: 6px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  :root {
+    font-size: 3px;
+  }
+  .settings {
+    height: 30rem;
+    margin-bottom: 2rem;
+  }
+  .btn {
+    padding: 1rem;
+    margin: 1.5rem;
+    font-size: 3rem;
+  }
+  .plus-min {
+    width: 6rem;
+    height: 6rem;
+  }
+  label.F.text,
+  label.B.text {
+    font-size: 7rem;
+  }
+  input {
+    font-size: 10rem;
+    width: 12rem;
+    height: 8rem;
+  }
+  .center-col {
+    justify-content: space-evenly;
+    height: 100%;
+  }
+  h1 {
+    font-size: 6rem;
+    margin: 3rem 0;
+  }
 }

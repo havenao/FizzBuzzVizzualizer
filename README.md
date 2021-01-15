@@ -7,7 +7,7 @@ To Do:
 
 •Organized comments
 •Add cooler transitions to css
-•Make scalable to smaller devices
+XMake scalable to smaller devices
 •Add Reset button (fizz 3, buzz 5)
 •Add fullscreen mode (only see Grid)
-•Refactor fizz and buzz "scoreboard" into components
+XRefactor fizz and buzz "scoreboard" into components

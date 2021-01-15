@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import "./App.css";
 import Box from "./Box";
+import DisplayFB from "./DisplayFB";
 
 function App() {
   // Set a number for Fizz and Buzz. Boxes is our array containing current fizzbuzz values
@@ -58,26 +60,16 @@ function App() {
     <main className="center-col">
       <header className="center-col">
         <h1 className="title">
-          <span className="F-text">Fizz</span>
-          <span className="B-text">Buzz</span>
-          <span className="FB-text">Vizzualizer</span>
+          <span className="F text">Fizz</span>
+          <span className="B text">Buzz</span>
+          <span className="FB text">Vizzualizer</span>
         </h1>
 
         <section className="settings">
           {/* FIZZ ZONE */}
           <div className="center-col">
-            <label htmlFor="fizz" className="F-text">
-              Fizz
-            </label>
-            <input
-              className="F-text"
-              name="fizz"
-              type="number"
-              min="2"
-              max="100"
-              value={fizz}
-              onInput={fizzChange}
-            />
+            <DisplayFB fb={"F"} fbState={fizz} change={fizzChange} />
+            {/* FIZZ CONTROLS */}
             <div className="row">
               <button
                 className="btn plus-min"
@@ -86,7 +78,7 @@ function App() {
                   setFizz(fizz - 1);
                 }}
               >
-                -
+                <FaMinus />
               </button>
               <button
                 className="btn plus-min"
@@ -95,7 +87,7 @@ function App() {
                   fillBoxes(fizz + 1, buzz);
                 }}
               >
-                +
+                <FaPlus />
               </button>
             </div>
           </div>
@@ -118,18 +110,8 @@ function App() {
 
           {/* BUZZ ZONE */}
           <div className="center-col">
-            <label htmlFor="B" className="B-text">
-              Buzz
-            </label>
-            <input
-              className="B-text"
-              name="buzz"
-              type="number"
-              min="2"
-              max="100"
-              value={buzz}
-              onChange={buzzChange}
-            />
+            <DisplayFB fb={"B"} fbState={buzz} change={buzzChange} />
+            {/* BUZZ CONTROLS */}
             <div className="row">
               <button
                 className="btn plus-min"
@@ -138,7 +120,7 @@ function App() {
                   setBuzz(buzz - 1);
                 }}
               >
-                -
+                <FaMinus />
               </button>
               <button
                 className="btn plus-min"
@@ -147,7 +129,7 @@ function App() {
                   fillBoxes(fizz, buzz + 1);
                 }}
               >
-                +
+                <FaPlus />
               </button>
             </div>
           </div>

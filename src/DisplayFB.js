@@ -1,45 +1,18 @@
 import React from "react";
 
-function DisplayFB({fb}) {
-if(fb === fizz){
-    const letterFB = "F"
-    const stringFB = "fizz"
-    const 
-}
+function DisplayFB({ fb, change, fbState }) {
   return (
-    <div className="center-col">
-      <label htmlFor="fizz" className="F-text">
+    <div className="center-col display">
+      <label htmlFor={fb} className={`${fb} text`}>
         Fizz
       </label>
       <input
-        className="F-text"
-        name="fizz"
+        className={`${fb} text`}
+        name={fb}
         type="number"
-        min="2"
-        max="100"
-        value={fizz}
-        onChange={fizzChange}
+        value={fbState}
+        onInput={change}
       />
-      <div className="row">
-        <button
-          className="btn plus-min"
-          onClick={() => {
-            fillBoxes(fizz - 1, buzz);
-            setFizz(fizz - 1);
-          }}
-        >
-          -
-        </button>
-        <button
-          className="btn plus-min"
-          onClick={() => {
-            fillBoxes(fizz + 1, buzz);
-            setFizz(fizz + 1);
-          }}
-        >
-          +
-        </button>
-      </div>
     </div>
   );
 }

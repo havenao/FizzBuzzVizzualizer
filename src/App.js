@@ -1,24 +1,116 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Box from "./Box";
 
 function App() {
+  // Set a number for Fizz and Buzz
+  const [fizz, setFizz] = useState(3);
+  const [buzz, setBuzz] = useState(5);
+
+  // Fill an Array with when to fizz,buzz and/or fizzbuzz
+  const fillBoxes = () => {
+    let newBoxes = [];
+    for (let i = 1; i <= 100; i++) {
+      if (i % fizz === 0 && i % buzz === 0) {
+        newBoxes.push("fizzbuzz");
+      } else if (i % fizz === 0) {
+        newBoxes.push("fizz");
+      } else if (i % buzz === 0) {
+        newBoxes.push("buzz");
+      } else {
+        newBoxes.push(i);
+      }
+    }
+    return newBoxes;
+  };
+
+  // More State Hooks: Boxes stores the current fizzbuzz array
+  const [boxes, setBoxes] = useState(fillBoxes());
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const randomizeFB = () => {
+    let fizzRand = Math.floor(Math.random() * (100 - 2) + 2);
+    let buzzRand = Math.floor(Math.random() * (100 - 2) + 2);
+    setFizz(fizzRand);
+    setBuzz(buzzRand);
+  };
+
+  function play() {
+    randomizeFB();
+    setBoxes(fillBoxes());
+  }
+
+  useEffect(() => {
+    if (isPlaying) {
+      const interval = setInterval(() => play(), 1000);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main className="center-col">
+      <header className="center-col">
+        <h1 className="title">
+          <span className="fizz-text">Fizz</span>
+          <span className="buzz-text">Buzz </span>
+          Visualizer
+        </h1>
+        <section className="settings">
+          <div className="center-col">
+            <div className="label-set">
+              <label htmlFor="fizz">
+                Set <span className="fizz-text">Fizz:</span>
+              </label>
+              <input
+                name="fizz"
+                type="number"
+                min="2"
+                max="100"
+                value={fizz}
+                onChange={(e) => setFizz(e.target.value)}
+              />
+            </div>
+            <div className="label-set">
+              <label htmlFor="buzz">
+                Set <span className="buzz-text">Buzz:</span>
+              </label>
+              <input
+                name="buzz"
+                type="number"
+                min="2"
+                max="100"
+                value={buzz}
+                onChange={(e) => setBuzz(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="btn-container">
+            <button className="btn" onClick={randomizeFB}>
+              Randomize
+            </button>
+            <button className="btn" onClick={() => setIsPlaying(!isPlaying)}>
+              Play
+            </button>
+            <button
+              className="btn"
+              onClick={() => {
+                setBoxes(fillBoxes());
+              }}
+            >
+              START!
+            </button>
+          </div>
+        </section>
       </header>
-    </div>
+
+      <section className="container">
+        {boxes.map((box, index) => {
+          return <Box box={box} key={index} />;
+        })}
+      </section>
+    </main>
   );
 }
 

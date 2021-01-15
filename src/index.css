@@ -87,31 +87,6 @@ header {
   border-radius: 0.75rem;
 }
 
-.container {
-  margin: 1rem 0;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 60rem;
-  height: 60rem;
-  box-shadow: 0 0 2px 2px deeppink;
-  border-radius: 0.75rem;
-}
-
-.box {
-  background-color: royalblue;
-  width: 5rem;
-  height: 5rem;
-  margin: 0.5rem;
-  border-radius: 0.25rem;
-  transition: ease 0.5s;
-}
-
-.box:hover {
-  box-shadow: 0 0 5px 1px white;
-}
-
 input {
   width: 8rem;
   height: 6rem;
@@ -181,32 +156,56 @@ button:focus {
   font-size: 2rem;
   font-weight: 700;
 }
+.grid {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 60rem;
+  height: 60rem;
+  box-shadow: 0 0 2px 2px deeppink;
+  border-radius: 0.75rem;
+}
+.box {
+  background-color: royalblue;
+  color: black;
+  font-size: 3rem;
+  width: 5rem;
+  height: 5rem;
+  margin: 0.5rem;
+  border-radius: 0.25rem;
+  transition: ease 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.fizz {
+.F {
   background-color: coral;
 }
-.fizz-text {
+.F-text {
   color: coral;
 }
 
-.buzz {
+.B {
   background-color: rgb(250, 250, 67);
 }
-.buzz-text {
+.B-text {
   color: rgb(250, 250, 67);
 }
-.fizz-text,
-.buzz-text {
+.F-text,
+.B-text {
   text-align: center;
 }
-label.fizz-text,
-label.buzz-text {
+label.F-text,
+label.B-text {
   font-size: 3rem;
 }
 
-.fizzbuzz {
+.FB {
   background-color: deeppink;
 }
-.fizzbuzz-text {
+.FB-text {
   color: deeppink;
 }

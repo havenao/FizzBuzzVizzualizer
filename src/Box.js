@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Box({ box }) {
-  return <div className={`box ${box}`}></div>;
+function Box({ box, show }) {
+  return <div className={`box ${box}`}>{show ? box : ""}</div>;
 }
 
 export default Box;

@@ -6,18 +6,18 @@ function App() {
   // Set a number for Fizz and Buzz
   const [fizz, setFizz] = useState(3);
   const [buzz, setBuzz] = useState(5);
-  const [letters, setLetters] = useState(false);
+  const [show, setShow] = useState(false);
 
   // Fill an Array with when to fizz,buzz and/or fizzbuzz
   const fillBoxes = (f, b) => {
     let newBoxes = [];
     for (let i = 1; i <= 100; i++) {
       if (i % f === 0 && i % b === 0) {
-        newBoxes.push("fizzbuzz");
+        newBoxes.push("FB");
       } else if (i % f === 0) {
-        newBoxes.push("fizz");
+        newBoxes.push("F");
       } else if (i % b === 0) {
-        newBoxes.push("buzz");
+        newBoxes.push("B");
       } else {
         newBoxes.push(i);
       }
@@ -59,18 +59,18 @@ function App() {
     <main className="center-col">
       <header className="center-col">
         <h1 className="title">
-          <span className="fizz-text">Fizz</span>
-          <span className="buzz-text">Buzz</span>
-          <span className="fizzbuzz-text">Vizzualizer</span>
+          <span className="F-text">Fizz</span>
+          <span className="B-text">Buzz</span>
+          <span className="FB-text">Vizzualizer</span>
         </h1>
         <section className="settings">
           {/* FIZZ ZONE */}
           <div className="center-col">
-            <label htmlFor="fizz" className="fizz-text">
+            <label htmlFor="fizz" className="F-text">
               Fizz
             </label>
             <input
-              className="fizz-text"
+              className="F-text"
               name="fizz"
               type="number"
               min="2"
@@ -99,8 +99,12 @@ function App() {
               </button>
             </div>
           </div>
+
           {/* BUTTON ZONE */}
           <div className="btn-container">
+            <button className="btn" onClick={() => setShow(!show)}>
+              {show ? "HIDE FB" : "SHOW FB"}
+            </button>
             <button className="btn" onClick={randomizeFB}>
               RANDOM
             </button>
@@ -111,13 +115,14 @@ function App() {
               {isPlaying ? "STOP" : "AUTO"}
             </button>
           </div>
+
           {/* BUZZ ZONE */}
           <div className="center-col">
-            <label htmlFor="buzz" className="buzz-text">
+            <label htmlFor="B" className="B-text">
               Buzz
             </label>
             <input
-              className="buzz-text"
+              className="B-text"
               name="buzz"
               type="number"
               min="2"
@@ -149,9 +154,10 @@ function App() {
         </section>
       </header>
 
-      <section className="container">
+      {/* THE GRID */}
+      <section className="grid">
         {boxes.map((box, index) => {
-          return <Box box={box} key={index} />;
+          return <Box box={box} show={show} key={index} />;
         })}
       </section>
     </main>

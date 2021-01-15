@@ -1,12 +1,13 @@
 This is an app that will run fizzbuzz visualized as colored boxes in a grid.
 The user can input values for fizz and buzz and see how they are displayed.
 User may also randomize those values.
-User can press play to watch randomized values display every second. (currently not fully functional).
+User can press Auto to watch randomized values display every second. (currently not fully functional).
 
-to do:
+To Do:
 
-add cool transitions to css
-play button turn to stop button & other buttons set play to stop
-re style: set fizz to left and buzz to right, of buttons, and increase text size
-
-scalable to smaller devices
+•Organized comments
+•Add cooler transitions to css
+•Make scalable to smaller devices
+•Add Reset button (fizz 3, buzz 5)
+•Add fullscreen mode (only see Grid)
+•Refactor fizz and buzz "scoreboard" into components

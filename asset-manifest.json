@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fizzBuzzVizzualizer/static/css/main.4924cbee.chunk.css",
+    "main.js": "/fizzBuzzVizzualizer/static/js/main.cdf83761.chunk.js",
+    "main.js.map": "/fizzBuzzVizzualizer/static/js/main.cdf83761.chunk.js.map",
+    "runtime-main.js": "/fizzBuzzVizzualizer/static/js/runtime-main.d02cac45.js",
+    "runtime-main.js.map": "/fizzBuzzVizzualizer/static/js/runtime-main.d02cac45.js.map",
+    "static/js/2.640af221.chunk.js": "/fizzBuzzVizzualizer/static/js/2.640af221.chunk.js",
+    "static/js/2.640af221.chunk.js.map": "/fizzBuzzVizzualizer/static/js/2.640af221.chunk.js.map",
+    "static/js/3.17c94205.chunk.js": "/fizzBuzzVizzualizer/static/js/3.17c94205.chunk.js",
+    "static/js/3.17c94205.chunk.js.map": "/fizzBuzzVizzualizer/static/js/3.17c94205.chunk.js.map",
+    "index.html": "/fizzBuzzVizzualizer/index.html",
+    "static/css/main.4924cbee.chunk.css.map": "/fizzBuzzVizzualizer/static/css/main.4924cbee.chunk.css.map",
+    "static/js/2.640af221.chunk.js.LICENSE.txt": "/fizzBuzzVizzualizer/static/js/2.640af221.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d02cac45.js",
+    "static/js/2.640af221.chunk.js",
+    "static/css/main.4924cbee.chunk.css",
+    "static/js/main.cdf83761.chunk.js"
+  ]
+}

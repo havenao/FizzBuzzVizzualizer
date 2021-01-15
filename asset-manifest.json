@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fizz-buzz-vizzualizer/static/css/main.4924cbee.chunk.css",
+    "main.js": "/fizz-buzz-vizzualizer/static/js/main.61827d15.chunk.js",
+    "main.js.map": "/fizz-buzz-vizzualizer/static/js/main.61827d15.chunk.js.map",
+    "runtime-main.js": "/fizz-buzz-vizzualizer/static/js/runtime-main.64288ab8.js",
+    "runtime-main.js.map": "/fizz-buzz-vizzualizer/static/js/runtime-main.64288ab8.js.map",
+    "static/js/2.640af221.chunk.js": "/fizz-buzz-vizzualizer/static/js/2.640af221.chunk.js",
+    "static/js/2.640af221.chunk.js.map": "/fizz-buzz-vizzualizer/static/js/2.640af221.chunk.js.map",
+    "static/js/3.17c94205.chunk.js": "/fizz-buzz-vizzualizer/static/js/3.17c94205.chunk.js",
+    "static/js/3.17c94205.chunk.js.map": "/fizz-buzz-vizzualizer/static/js/3.17c94205.chunk.js.map",
+    "index.html": "/fizz-buzz-vizzualizer/index.html",
+    "static/css/main.4924cbee.chunk.css.map": "/fizz-buzz-vizzualizer/static/css/main.4924cbee.chunk.css.map",
+    "static/js/2.640af221.chunk.js.LICENSE.txt": "/fizz-buzz-vizzualizer/static/js/2.640af221.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.64288ab8.js",
+    "static/js/2.640af221.chunk.js",
+    "static/css/main.4924cbee.chunk.css",
+    "static/js/main.61827d15.chunk.js"
+  ]
+}

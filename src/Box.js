@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Box(props) {
-  const { box, index } = props;
+function Box({ box }) {
+  
+
   return <div className={`box ${box}`}></div>;
 }
 

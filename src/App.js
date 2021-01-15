@@ -6,6 +6,7 @@ function App() {
   // Set a number for Fizz and Buzz
   const [fizz, setFizz] = useState(3);
   const [buzz, setBuzz] = useState(5);
+  const [letters, setLetters] = useState(false);
 
   // Fill an Array with when to fizz,buzz and/or fizzbuzz
   const fillBoxes = (f, b) => {
@@ -25,7 +26,7 @@ function App() {
   };
 
   // More State Hooks: Boxes stores the current fizzbuzz array
-  const [boxes, setBoxes] = useState(fillBoxes());
+  const [boxes, setBoxes] = useState(fillBoxes(fizz, buzz));
   const [isPlaying, setIsPlaying] = useState(false);
 
   const randomizeFB = () => {
@@ -50,44 +51,48 @@ function App() {
       <header className="center-col">
         <h1 className="title">
           <span className="fizz-text">Fizz</span>
-          <span className="buzz-text">Buzz </span>
-          Visualizer
+          <span className="buzz-text">Buzz</span>
+          <span className="fizzbuzz-text">Vizzualizer</span>
         </h1>
         <section className="settings">
-          <div className="center-col">
-            <div className="label-set">
-              <label htmlFor="fizz">
-                Set <span className="fizz-text">Fizz:</span>
-              </label>
-              <input
-                name="fizz"
-                type="number"
-                min="2"
-                max="100"
-                value={fizz}
-                onChange={(e) => setFizz(e.target.value)}
-              />
-            </div>
-            <div className="label-set">
-              <label htmlFor="buzz">
-                Set <span className="buzz-text">Buzz:</span>
-              </label>
-              <input
-                name="buzz"
-                type="number"
-                min="2"
-                max="100"
-                value={buzz}
-                onChange={(e) => setBuzz(e.target.value)}
-              />
+          <div className="label-set center-col">
+            <label htmlFor="fizz" className="fizz-text">
+              Fizz:
+            </label>
+            <input
+              className="fizz-text"
+              name="fizz"
+              type="number"
+              min="2"
+              max="100"
+              value={fizz}
+              onChange={(e) => setFizz(e.target.value)}
+            />
+            <div className="row">
+              <button
+                className="btn plus-min"
+                onClick={() => setFizz(fizz - 1)}
+              >
+                -
+              </button>
+              <button
+                className="btn plus-min"
+                onClick={() => setFizz(fizz + 1)}
+              >
+                +
+              </button>
             </div>
           </div>
+
           <div className="btn-container">
             <button className="btn" onClick={randomizeFB}>
-              Randomize
+              RANDOM
             </button>
-            <button className="btn" onClick={() => setIsPlaying(!isPlaying)}>
-              Play
+            <button
+              className={`btn ${!isPlaying || "autoplay"}`}
+              onClick={() => setIsPlaying(!isPlaying)}
+            >
+              {isPlaying ? "STOP" : "AUTO"}
             </button>
             <button
               className="btn"
@@ -95,8 +100,38 @@ function App() {
                 setBoxes(fillBoxes(fizz, buzz));
               }}
             >
-              START!
+              APPLY
             </button>
+          </div>
+          <div className="label-set center-col">
+            <label htmlFor="buzz" className="buzz-text">
+              Buzz:
+            </label>
+            <input
+              className="buzz-text"
+              name="buzz"
+              type="number"
+              min="2"
+              max="100"
+              value={buzz}
+              onChange={(e) => setBuzz(e.target.value)}
+            />
+            <div className="row">
+              <button
+                className="btn plus-min"
+                onClick={() => setBuzz(buzz - 1)}
+              >
+                -
+              </button>
+              <button
+                className="btn plus-min"
+                onClick={() => {
+                  setBuzz(buzz + 1);
+                }}
+              >
+                +
+              </button>
+            </div>
           </div>
         </section>
       </header>

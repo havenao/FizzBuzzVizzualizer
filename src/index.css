@@ -11,6 +11,7 @@ h6,
 p,
 a,
 img,
+input,
 article,
 footer,
 header,
@@ -23,6 +24,17 @@ section {
   font: inherit;
   vertical-align: baseline;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 header,
@@ -31,38 +43,59 @@ nav,
 section {
   display: block;
 }
+:root {
+  font-size: 10px;
+}
 body {
   line-height: 1;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
-  font-size: 18px;
   color: white;
   background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 main {
-  width: 100vw;
+  width: 60rem;
 }
 
 .center-col {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 }
+
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 .title {
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
+header {
+  width: 100%;
+}
+.settings {
+  width: 100%;
+  padding: 2rem 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0 0 2px 2px deeppink;
+
+  border-radius: 0.75rem;
+}
+
 .container {
-  margin: 1rem;
+  margin: 1rem 0;
+  padding: 0.5rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 60rem;
   height: 60rem;
-  border: 3px solid gray;
+  box-shadow: 0 0 2px 2px deeppink;
   border-radius: 0.75rem;
 }
 
@@ -72,10 +105,84 @@ h1 {
   height: 5rem;
   margin: 0.5rem;
   border-radius: 0.25rem;
+  transition: ease 0.5s;
 }
 
 .box:hover {
   box-shadow: 0 0 5px 1px white;
+}
+
+.label-set {
+  width: 8rem;
+  height: 2rem;
+}
+
+input {
+  width: 8rem;
+  height: 6rem;
+  font-size: 6rem;
+  background-color: black;
+  border-radius: 0.25rem;
+}
+
+input:focus {
+  outline-color: deeppink;
+  box-shadow: 0 0 2px 2px deeppink;
+  outline: none;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 100%;
+}
+
+.btn {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: deeppink;
+  transition: ease 0.2s;
+  box-shadow: 0 0 2px 2px deeppink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:focus {
+  outline-color: deeppink;
+  box-shadow: 0 0 2px 2px deeppink;
+  outline: none;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background-color: deeppink;
+  color: black;
+  cursor: pointer;
+}
+
+.autoplay {
+  background-color: deeppink;
+  color: black;
+}
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.plus-min {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin: 0.5rem;
+  vertical-align: baseline;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .fizz {
@@ -91,58 +198,18 @@ h1 {
 .buzz-text {
   color: rgb(250, 250, 67);
 }
+.fizz-text,
+.buzz-text {
+  text-align: center;
+}
+label.fizz-text,
+label.buzz-text {
+  font-size: 3rem;
+}
 
 .fizzbuzz {
   background-color: deeppink;
 }
-
-.settings {
-  width: 20rem;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 3px solid gray;
-  border-radius: 0.75rem;
-}
-.label-set {
-  width: 8rem;
-  height: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 0.25rem;
-}
-
-input {
-  width: 2rem;
-  height: 1rem;
-  font-size: 1rem;
-  background-color: black;
-  color: white;
-  border-radius: 0.25rem;
-}
-
-.btn-container {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  height: 100%;
-}
-
-.btn {
-  height: 2rem;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  font-weight: 700;
-  border-radius: 0.5rem;
-  background-color: coral;
-  transition: linear 0.1s;
-  box-shadow: 0 0 2px 2px slategrey;
-}
-
-.btn:hover {
-  transform: scale(1.1);
-  background-color: rgb(250, 250, 67);
-  cursor: pointer;
+.fizzbuzz-text {
+  color: deeppink;
 }

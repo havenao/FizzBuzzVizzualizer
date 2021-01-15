@@ -8,14 +8,14 @@ function App() {
   const [buzz, setBuzz] = useState(5);
 
   // Fill an Array with when to fizz,buzz and/or fizzbuzz
-  const fillBoxes = () => {
+  const fillBoxes = (f, b) => {
     let newBoxes = [];
     for (let i = 1; i <= 100; i++) {
-      if (i % fizz === 0 && i % buzz === 0) {
+      if (i % f === 0 && i % b === 0) {
         newBoxes.push("fizzbuzz");
-      } else if (i % fizz === 0) {
+      } else if (i % f === 0) {
         newBoxes.push("fizz");
-      } else if (i % buzz === 0) {
+      } else if (i % b === 0) {
         newBoxes.push("buzz");
       } else {
         newBoxes.push(i);
@@ -31,18 +31,14 @@ function App() {
   const randomizeFB = () => {
     let fizzRand = Math.floor(Math.random() * (100 - 2) + 2);
     let buzzRand = Math.floor(Math.random() * (100 - 2) + 2);
+    setBoxes(fillBoxes(fizzRand, buzzRand));
     setFizz(fizzRand);
     setBuzz(buzzRand);
   };
 
-  function play() {
-    randomizeFB();
-    setBoxes(fillBoxes());
-  }
-
   useEffect(() => {
     if (isPlaying) {
-      const interval = setInterval(() => play(), 1000);
+      const interval = setInterval(() => randomizeFB(), 1000);
       return () => {
         clearInterval(interval);
       };
@@ -96,7 +92,7 @@ function App() {
             <button
               className="btn"
               onClick={() => {
-                setBoxes(fillBoxes());
+                setBoxes(fillBoxes(fizz, buzz));
               }}
             >
               START!

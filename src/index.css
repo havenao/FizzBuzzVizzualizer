@@ -175,7 +175,7 @@ button:focus {
   height: 5rem;
   margin: 0.5rem;
   border-radius: 0.25rem;
-  transition: ease 0.5s;
+  transition: linear 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,6 +183,7 @@ button:focus {
 
 .F {
   background-color: coral;
+  box-shadow: 0 0 5px 1px coral;
 }
 .F-text {
   color: coral;
@@ -190,6 +191,7 @@ button:focus {
 
 .B {
   background-color: rgb(250, 250, 67);
+  box-shadow: 0 0 5px 1px rgb(250, 250, 67);
 }
 .B-text {
   color: rgb(250, 250, 67);
@@ -205,6 +207,7 @@ label.B-text {
 
 .FB {
   background-color: deeppink;
+  box-shadow: 0 0 5px 1px deeppink;
 }
 .FB-text {
   color: deeppink;

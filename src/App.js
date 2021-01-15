@@ -3,10 +3,12 @@ import "./App.css";
 import Box from "./Box";
 
 function App() {
-  // Set a number for Fizz and Buzz
+  // Set a number for Fizz and Buzz. Boxes is our array containing current fizzbuzz values
   const [fizz, setFizz] = useState(3);
   const [buzz, setBuzz] = useState(5);
   const [show, setShow] = useState(false);
+  const [boxes, setBoxes] = useState([]);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // Fill an Array with when to fizz,buzz and/or fizzbuzz
   const fillBoxes = (f, b) => {
@@ -22,27 +24,23 @@ function App() {
         newBoxes.push(i);
       }
     }
-    return newBoxes;
+    setBoxes(newBoxes);
   };
-
-  // More State Hooks: Boxes stores the current fizzbuzz array
-  const [boxes, setBoxes] = useState(fillBoxes(fizz, buzz));
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const randomizeFB = () => {
     let fizzRand = Math.floor(Math.random() * (100 - 2) + 2);
     let buzzRand = Math.floor(Math.random() * (100 - 2) + 2);
-    setBoxes(fillBoxes(fizzRand, buzzRand));
+    fillBoxes(fizzRand, buzzRand);
     setFizz(fizzRand);
     setBuzz(buzzRand);
   };
 
   const fizzChange = (e) => {
-    setBoxes(fillBoxes(e.target.value, buzz));
+    fillBoxes(e.target.value, buzz);
     setFizz(e.target.value);
   };
   const buzzChange = (e) => {
-    setBoxes(fillBoxes(fizz, e.target.value));
+    fillBoxes(fizz, e.target.value);
     setBuzz(e.target.value);
   };
 
@@ -53,7 +51,8 @@ function App() {
         clearInterval(interval);
       };
     }
-  });
+    fillBoxes(fizz, buzz);
+  }, [isPlaying]);
 
   return (
     <main className="center-col">
@@ -63,6 +62,7 @@ function App() {
           <span className="B-text">Buzz</span>
           <span className="FB-text">Vizzualizer</span>
         </h1>
+
         <section className="settings">
           {/* FIZZ ZONE */}
           <div className="center-col">
@@ -76,13 +76,13 @@ function App() {
               min="2"
               max="100"
               value={fizz}
-              onChange={fizzChange}
+              onInput={fizzChange}
             />
             <div className="row">
               <button
                 className="btn plus-min"
                 onClick={() => {
-                  setBoxes(fillBoxes(fizz - 1, buzz));
+                  fillBoxes(fizz - 1, buzz);
                   setFizz(fizz - 1);
                 }}
               >
@@ -91,8 +91,8 @@ function App() {
               <button
                 className="btn plus-min"
                 onClick={() => {
-                  setBoxes(fillBoxes(fizz + 1, buzz));
-                  setFizz(fizz + 1);
+                  setFizz(parseInt(fizz) + 1);
+                  fillBoxes(fizz + 1, buzz);
                 }}
               >
                 +
@@ -134,7 +134,7 @@ function App() {
               <button
                 className="btn plus-min"
                 onClick={() => {
-                  setBoxes(fillBoxes(fizz, buzz - 1));
+                  fillBoxes(fizz, buzz - 1);
                   setBuzz(buzz - 1);
                 }}
               >
@@ -143,8 +143,8 @@ function App() {
               <button
                 className="btn plus-min"
                 onClick={() => {
-                  setBoxes(fillBoxes(fizz, buzz + 1));
-                  setBuzz(buzz + 1);
+                  setBuzz(parseInt(buzz) + 1);
+                  fillBoxes(fizz, buzz + 1);
                 }}
               >
                 +

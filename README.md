@@ -9,4 +9,4 @@ add cool transitions to css
 play button turn to stop button & other buttons set play to stop
 re style: set fizz to left and buzz to right, of buttons, and increase text size
 
-give option to choose colors
+scalable to smaller devices

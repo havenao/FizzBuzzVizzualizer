@@ -37,6 +37,15 @@ function App() {
     setBuzz(buzzRand);
   };
 
+  const fizzChange = (e) => {
+    setBoxes(fillBoxes(e.target.value, buzz));
+    setFizz(e.target.value);
+  };
+  const buzzChange = (e) => {
+    setBoxes(fillBoxes(fizz, e.target.value));
+    setBuzz(e.target.value);
+  };
+
   useEffect(() => {
     if (isPlaying) {
       const interval = setInterval(() => randomizeFB(), 1000);
@@ -55,9 +64,10 @@ function App() {
           <span className="fizzbuzz-text">Vizzualizer</span>
         </h1>
         <section className="settings">
-          <div className="label-set center-col">
+          {/* FIZZ ZONE */}
+          <div className="center-col">
             <label htmlFor="fizz" className="fizz-text">
-              Fizz:
+              Fizz
             </label>
             <input
               className="fizz-text"
@@ -66,24 +76,30 @@ function App() {
               min="2"
               max="100"
               value={fizz}
-              onChange={(e) => setFizz(e.target.value)}
+              onChange={fizzChange}
             />
             <div className="row">
               <button
                 className="btn plus-min"
-                onClick={() => setFizz(fizz - 1)}
+                onClick={() => {
+                  setBoxes(fillBoxes(fizz - 1, buzz));
+                  setFizz(fizz - 1);
+                }}
               >
                 -
               </button>
               <button
                 className="btn plus-min"
-                onClick={() => setFizz(fizz + 1)}
+                onClick={() => {
+                  setBoxes(fillBoxes(fizz + 1, buzz));
+                  setFizz(fizz + 1);
+                }}
               >
                 +
               </button>
             </div>
           </div>
-
+          {/* BUTTON ZONE */}
           <div className="btn-container">
             <button className="btn" onClick={randomizeFB}>
               RANDOM
@@ -94,18 +110,11 @@ function App() {
             >
               {isPlaying ? "STOP" : "AUTO"}
             </button>
-            <button
-              className="btn"
-              onClick={() => {
-                setBoxes(fillBoxes(fizz, buzz));
-              }}
-            >
-              APPLY
-            </button>
           </div>
-          <div className="label-set center-col">
+          {/* BUZZ ZONE */}
+          <div className="center-col">
             <label htmlFor="buzz" className="buzz-text">
-              Buzz:
+              Buzz
             </label>
             <input
               className="buzz-text"
@@ -114,18 +123,22 @@ function App() {
               min="2"
               max="100"
               value={buzz}
-              onChange={(e) => setBuzz(e.target.value)}
+              onChange={buzzChange}
             />
             <div className="row">
               <button
                 className="btn plus-min"
-                onClick={() => setBuzz(buzz - 1)}
+                onClick={() => {
+                  setBoxes(fillBoxes(fizz, buzz - 1));
+                  setBuzz(buzz - 1);
+                }}
               >
                 -
               </button>
               <button
                 className="btn plus-min"
                 onClick={() => {
+                  setBoxes(fillBoxes(fizz, buzz + 1));
                   setBuzz(buzz + 1);
                 }}
               >
